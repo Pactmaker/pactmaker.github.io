@@ -1,0 +1,232 @@
+@page "/"
+@inject HttpClient Http
+@inject ILogger<Index> Logger
+
+<PageTitle>Pactmaker</PageTitle>
+
+<div class="container">
+    <div class="row">
+        <div class="col-9 order-1" id="main">
+            <div class="row text-center">
+                <h1>Pactmaker - WIXOSS CN Card Database</h1>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <label for="card_type" class="form-label">
+                        <a href="#filter" @onclick="@(() => card_type = Array.Empty<string>())">Card Type</a>
+                        <select id="card_type" class="form-select" multiple aria-label="Card Type" @bind="card_type">
+                            <option value="共鸣">共鸣</option>
+                            <option value="分身">分身</option>
+                            <option value="必杀">必杀</option>
+                            <option value="必杀 衍生物">必杀 衍生物</option>
+                            <option value="碎片">碎片</option>
+                            <option value="精灵">精灵</option>
+                            <option value="钥匙">钥匙</option>
+                            <option value="魔法">魔法</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col text-center">
+                    <label for="color" class="form-label">
+                        <a href="#filter" @onclick="@(() => color = Array.Empty<string>())">Color</a>
+                        <select id="color" class="form-select" multiple aria-label="Color" @bind="color">
+                            <option value="无">无</option>
+                            <option value="白">白</option>
+                            <option value="红">红</option>
+                            <option value="绿">绿</option>
+                            <option value="蓝">蓝</option>
+                            <option value="黑">黑</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col text-center">
+                    <label for="level" class="form-label">
+                        <a href="#filter" @onclick="@(() => level = Array.Empty<string>())">Level</a>
+                        <select id="level" class="form-select" multiple aria-label="Level" @bind="level">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col text-center">
+                    <label for="power" class="form-label">
+                        <a href="#filter" @onclick="@(() => power = Array.Empty<string>())">Power</a>
+                        <select id="power" class="form-select" multiple aria-label="Power" @bind="power">
+                            <option value="1000">1000</option>
+                            <option value="2000">2000</option>
+                            <option value="3000">3000</option>
+                            <option value="4000">4000</option>
+                            <option value="5000">5000</option>
+                            <option value="6000">6000</option>
+                            <option value="7000">7000</option>
+                            <option value="8000">8000</option>
+                            <option value="9000">9000</option>
+                            <option value="10000">10000</option>
+                            <option value="11000">11000</option>
+                            <option value="12000">12000</option>
+                            <option value="13000">13000</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+@if (cards.Count() == 0)
+{
+                <p><em>Loading...</em></p>
+}
+else
+{
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th @onclick='@(() => flitered_cards = flitered_cards.OrderBy(i => String.IsNullOrWhiteSpace(i.card_name) ? Char.ConvertFromUtf32(0x10ffff) : i.card_name).ToList())'><a href="#order">Card Name</a></th>
+                            <th @onclick='@(() => flitered_cards = flitered_cards.OrderBy(i => String.IsNullOrWhiteSpace(i.card_type) ? Char.ConvertFromUtf32(0x10ffff) : i.card_type).ToList())'><a href="#order">Card Type</a></th>
+                            <th @onclick='@(() => flitered_cards = flitered_cards.OrderBy(i => String.IsNullOrWhiteSpace(i.color) ? Char.ConvertFromUtf32(0x10ffff) : i.color).ToList())'><a href="#order">Color</a></th>
+                            <th @onclick='@(() => flitered_cards = flitered_cards.OrderBy(i => String.IsNullOrWhiteSpace(i.level) ? Char.ConvertFromUtf32(0x10ffff) : i.level).ToList())'><a href="#order">Level</a></th>
+                            <th @onclick='@(() => flitered_cards = flitered_cards.OrderBy(i => String.IsNullOrWhiteSpace(i.power) ? Char.ConvertFromUtf32(0x10ffff) : i.power).ToList())'><a href="#order">Power</a></th>
+                            <th @onclick='@(() => flitered_cards = flitered_cards.OrderBy(i => String.IsNullOrWhiteSpace(i.card_lines) ? Char.ConvertFromUtf32(0x10ffff) : i.card_lines).ToList())'><a href="#order">Card Lines</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var c in flitered_cards)
+                        {
+                            <tr>
+                                <td @onclick='() => card_image = $"data/{c.uid}.webp"'><a href="#card">@c.card_name</a></td>
+                                <td>@c.card_type</td>
+                                <td>@c.color</td>
+                                <td>@c.level</td>
+                                <td>@c.power</td>
+                                <td>@c.card_lines</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+}
+            </div>
+        </div>
+
+        <div class="col-3 order-2">
+            <div class="sticky-top">
+                <img src="@card_image"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string card_image { get; set; } = string.Empty;
+
+    private string[] _level = Array.Empty<string>();
+    private string[] level
+    {
+        get
+        {
+            return _level;
+        }
+
+        set
+        {
+            _level = value;
+            FilterChanged();
+        }
+    }
+    private string[] _power = Array.Empty<string>();
+    private string[] power
+    {
+        get
+        {
+            return _power;
+        }
+
+        set
+        {
+            _power = value;
+            FilterChanged();
+        }
+    }
+    private string[] _card_type = Array.Empty<string>();
+    private string[] card_type
+    {
+        get
+        {
+            return _card_type;
+        }
+
+        set
+        {
+            _card_type = value;
+            FilterChanged();
+        }
+    }
+    private string[] _color = Array.Empty<string>();
+    private string[] color
+    {
+        get
+        {
+            return _color;
+        }
+
+        set
+        {
+            _color = value;
+            FilterChanged();
+        }
+    }
+
+    private HashSet<WixossCard> cards { get; set; } = new HashSet<WixossCard>();
+    private List<WixossCard> flitered_cards { get; set; } = new List<WixossCard>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Logger.LogInformation($"Welcome to Pactmaker!");
+
+        var timer = new Stopwatch();
+        using var json_gzipped = await Http.GetStreamAsync("data/cards.json.gz");
+        using var json = new GZipStream(json_gzipped, CompressionMode.Decompress);
+
+        Logger.LogInformation($"Loading card info...");
+        timer.Start();
+        cards = await JsonSerializer.DeserializeAsyncEnumerable<WixossCard>(json)
+                                    .OfType<WixossCard>()
+                                    .ToHashSetAsync();
+        timer.Stop();
+        Logger.LogInformation($"Deserialization completed in {timer.ElapsedMilliseconds} ms.");
+
+        FilterChanged();
+    }
+
+    private void FilterChanged()
+    {
+        var result = cards.AsEnumerable();
+        if (level.Count() != 0)
+        {
+            result = result.Where(i => level.Contains(i.level));
+        }
+        if (power.Count() != 0)
+        {
+            result = result.Where(i => power.Contains(i.power));
+        }
+        if (card_type.Count() != 0)
+        {
+            result = result.Where(i => card_type.Contains(i.card_type));
+        }
+        if (color.Count() != 0)
+        {
+            result = result.Where(i => color.Where(c => i.color.Contains(c)).Any());
+        }
+        flitered_cards = result.OrderBy(i => String.IsNullOrWhiteSpace(i.card_type) ? Char.ConvertFromUtf32(0x10ffff) : i.card_type)
+                               .ThenBy(i => String.IsNullOrWhiteSpace(i.level) ? Char.ConvertFromUtf32(0x10ffff) : i.level)
+                               .ThenBy(i => String.IsNullOrWhiteSpace(i.power) ? Char.ConvertFromUtf32(0x10ffff) : i.power)
+                               .ThenBy(i => String.IsNullOrWhiteSpace(i.card_name) ? Char.ConvertFromUtf32(0x10ffff) : i.card_name)
+                               .ToList();
+        this.StateHasChanged();
+    }
+}

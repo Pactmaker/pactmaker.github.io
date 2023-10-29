@@ -1,0 +1,23 @@
+exclude: |
+  (?x)^(
+      wwwroot/css/bootstrap/.*        |
+      wwwroot/css/bootstrap-icons/.*
+  )$
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=2048]
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: pretty-format-json
+        args: [--autofix, --no-ensure-ascii]
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
