@@ -62,4 +62,4 @@ jobs:
         continue-on-error: true
       - name: Deploy to GitHub Pages
         if: steps.setup-pages.outcome == 'success'
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3
