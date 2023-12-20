@@ -45,7 +45,7 @@ jobs:
           dotnet workload restore
           dotnet publish -p:RunAOTCompilation=true
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "bin/Release/net8.0/publish/wwwroot"
   deploy:
