@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wixoss.CLI", "Wixoss.CLI\Wixoss.CLI.csproj", "{C3A28F75-DE79-4179-A364-DF9510565330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wixoss.Models", "Wixoss.Models\Wixoss.Models.csproj", "{631E6A89-8D5D-41D7-A917-0F5C64906DD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pactmaker.Shared", "Pactmaker.Shared\Pactmaker.Shared.csproj", "{62586171-36CA-4AA9-BEF8-AEDAB761C33F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pactmaker.Wasm", "Pactmaker.Wasm\Pactmaker.Wasm.csproj", "{791F15C8-FEA4-4875-815B-53BCE80B23FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3A28F75-DE79-4179-A364-DF9510565330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A28F75-DE79-4179-A364-DF9510565330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A28F75-DE79-4179-A364-DF9510565330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A28F75-DE79-4179-A364-DF9510565330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631E6A89-8D5D-41D7-A917-0F5C64906DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631E6A89-8D5D-41D7-A917-0F5C64906DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631E6A89-8D5D-41D7-A917-0F5C64906DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631E6A89-8D5D-41D7-A917-0F5C64906DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62586171-36CA-4AA9-BEF8-AEDAB761C33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62586171-36CA-4AA9-BEF8-AEDAB761C33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62586171-36CA-4AA9-BEF8-AEDAB761C33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62586171-36CA-4AA9-BEF8-AEDAB761C33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{791F15C8-FEA4-4875-815B-53BCE80B23FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791F15C8-FEA4-4875-815B-53BCE80B23FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791F15C8-FEA4-4875-815B-53BCE80B23FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791F15C8-FEA4-4875-815B-53BCE80B23FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DB65942-6F7D-44B7-8465-43C1C19E77C3}
+	EndGlobalSection
+EndGlobal

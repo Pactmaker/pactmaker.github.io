@@ -1,0 +1,63 @@
+@using Wixoss.Models.Cards;
+@using Wixoss.Models.Cards.Extensions;
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
+@inject IWebAssemblyHostEnvironment HostEnvironment
+@inherits MudComponentBase;
+
+<MudPaper>
+@if (string.IsNullOrWhiteSpace(Card.UID))
+{
+    <MudSkeleton SkeletonType=@SkeletonType.Rectangle
+        Width="100%" Height="350px" Style="max-height: calc(100vh - 6rem);" />
+}
+else
+{
+    <MudCard>
+    @if (Thumbnail)
+    {
+        <MudCardMedia @bind-Image=@ImageURL Height="140" @onclick="e => ZoomOutViewVisible = true"/>
+    }
+    else
+    {
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo=@Typo.h6>@Card.Name</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudText Typo=@Typo.h6>@string.Join("|", Card.Color ?? new HashSet<string>())</MudText>
+            </CardHeaderActions>
+        </MudCardHeader>
+
+        <MudImage @bind-Src=@ImageURL Class="mud-width-full" Style="max-height: calc(100vh - 6rem);"
+            ObjectFit=@ObjectFit.Contain ObjectPosition=@ObjectPosition.Center @onclick="e => ZoomOutViewVisible = true"/>
+        
+        <MudCardContent>
+            <MudText Style="white-space: pre-wrap;">@Card.Effect</MudText>
+
+            <MudText Typo=@Typo.body2 Align=@Align.End Style="white-space: pre-wrap;">@Card.FlavorText</MudText>
+        </MudCardContent>
+    }
+    </MudCard>
+    <MudOverlay @bind-Visible=@ZoomOutViewVisible DarkBackground="true" AutoClose="true">
+        <MudImage @bind-Src=@ImageURL Class="d-flex align-center justify-center" Style="max-height: calc(100vh - 6rem);"
+            ObjectFit=@ObjectFit.Contain ObjectPosition=@ObjectPosition.Center @onclick="e => ZoomOutViewVisible = false"/>
+    </MudOverlay>
+}
+</MudPaper>
+
+@code
+{
+    [Parameter]
+    public WixossCard Card { get; set; } = new();
+
+    [Parameter]
+    public bool Thumbnail { get; set; } = false;
+    private bool ZoomOutViewVisible { get; set; } = false;
+
+    private string ImageURL
+    { 
+        get => $"{(HostEnvironment.IsDevelopment() ? string.Empty : Card.AssetHost())}{Card.ImageURL()}";
+
+        set => _ = value;
+    } 
+}

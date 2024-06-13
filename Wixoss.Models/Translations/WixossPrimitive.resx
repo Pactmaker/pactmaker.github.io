@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="WixossRegion_enUS" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="WixossRegion_jaJP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="WixossRegion_zhHans" xml:space="preserve">
+    <value>Simplified Chinese</value>
+  </data>
+  <data name="WixossRegion_zhHant" xml:space="preserve">
+    <value>Traditional Chinese</value>
+  </data>
+
+  <data name="WixossType_Assist" xml:space="preserve">
+    <value>ASSIST</value>
+  </data>
+  <data name="WixossType_Lrig" xml:space="preserve">
+    <value>LRIG</value>
+  </data>
+  <data name="WixossType_Signi" xml:space="preserve">
+    <value>SIGNI</value>
+  </data>
+  <data name="WixossType_Arts" xml:space="preserve">
+    <value>ARTS</value>
+  </data>
+  <data name="WixossType_Spell" xml:space="preserve">
+    <value>Spell</value>
+  </data>
+  <data name="WixossType_Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="WixossType_Piece" xml:space="preserve">
+    <value>PIECE</value>
+  </data>
+  <data name="WixossType_Resona" xml:space="preserve">
+    <value>Resona</value>
+  </data>
+  <data name="WixossType_Craft" xml:space="preserve">
+    <value>Craft</value>
+  </data>
+
+  <data name="WixossColor_White" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="WixossColor_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="WixossColor_Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="WixossColor_Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="WixossColor_Black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="WixossColor_Colorless" xml:space="preserve">
+    <value>Colorless</value>
+  </data>
+
+  <data name="WixossStory_Dissona" xml:space="preserve">
+    <value>Dissona</value>
+  </data>
+  
+  <data name="WixossFormat_AllStar" xml:space="preserve">
+    <value>All-Star</value>
+  </data>
+  <data name="WixossFormat_Key" xml:space="preserve">
+    <value>Key Selection</value>
+  </data>
+  <data name="WixossFormat_Diva" xml:space="preserve">
+    <value>Diva Selection</value>
+  </data>
+
+  <data name="WixossRarity_C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="WixossRarity_R" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="WixossRarity_LC" xml:space="preserve">
+    <value>LC</value>
+  </data>
+  <data name="WixossRarity_LR" xml:space="preserve">
+    <value>LR</value>
+  </data>
+  <data name="WixossRarity_ST" xml:space="preserve">
+    <value>ST</value>
+  </data>
+  <data name="WixossRarity_PR" xml:space="preserve">
+    <value>PR</value>
+  </data>
+  <data name="WixossRarity_LRP" xml:space="preserve">
+    <value>LRP</value>
+  </data>
+  <data name="WixossRarity_SECRET" xml:space="preserve">
+    <value>SECRET</value>
+  </data>
+
+  <data name="WixossTeam_AncientSurprise" xml:space="preserve">
+    <value>Ancient Surprise</value>
+  </data>
+  <data name="WixossTeam_Sanbaka" xml:space="preserve">
+    <value>Sanbaka</value>
+  </data>
+  <data name="WixossTeam_NoLimit" xml:space="preserve">
+    <value>No Limit</value>
+  </data>
+  <data name="WixossTeam_CardJockey" xml:space="preserve">
+    <value>Card Jockey</value>
+  </data>
+  <data name="WixossTeam_UchuNoHajimari" xml:space="preserve">
+    <value>UCHU NO HAJIMARI</value>
+  </data>
+  <data name="WixossTeam_Diagram" xml:space="preserve">
+    <value>DIAGRAM</value>
+  </data>
+  <data name="WixossTeam_DeusExMachina" xml:space="preserve">
+    <value>Deus Ex Machina</value>
+  </data>
+  <data name="WixossTeam_Kyurukyurun" xml:space="preserve">
+    <value>Kyurukyurun☆</value>
+  </data>
+  <data name="WixossLrig_Tama" xml:space="preserve">
+    <value>Tama</value>
+  </data>
+  <data name="WixossLrig_Remember" xml:space="preserve">
+    <value>Remember</value>
+  </data>
+  <data name="WixossLrig_Sashe" xml:space="preserve">
+    <value>Sashe</value>
+  </data>
+  <data name="WixossLrig_Iona" xml:space="preserve">
+    <value>Iona</value>
+  </data>
+  <data name="WixossLrig_Haity" xml:space="preserve">
+    <value>Haity</value>
+  </data>
+  <data name="WixossLrig_Hanayo" xml:space="preserve">
+    <value>Hanayo</value>
+  </data>
+  <data name="WixossLrig_Yuzuki" xml:space="preserve">
+    <value>Yuzuki</value>
+  </data>
+  <data name="WixossLrig_Lalaru" xml:space="preserve">
+    <value>Lalaru</value>
+  </data>
+  <data name="WixossLrig_Piruluk" xml:space="preserve">
+    <value>Piruluk</value>
+  </data>
+  <data name="WixossLrig_Eldora" xml:space="preserve">
+    <value>Eldora</value>
+  </data>
+  <data name="WixossLrig_Milulun" xml:space="preserve">
+    <value>Milulun</value>
+  </data>
+  <data name="WixossLrig_Soui" xml:space="preserve">
+    <value>Soui</value>
+  </data>
+  <data name="WixossLrig_Futase" xml:space="preserve">
+    <value>Futase</value>
+  </data>
+  <data name="WixossLrig_Midoriko" xml:space="preserve">
+    <value>Midoriko</value>
+  </data>
+  <data name="WixossLrig_Ann" xml:space="preserve">
+    <value>Ann</value>
+  </data>
+  <data name="WixossLrig_Aiyai" xml:space="preserve">
+    <value>Aiyai</value>
+  </data>
+  <data name="WixossLrig_Urith" xml:space="preserve">
+    <value>Urith</value>
+  </data>
+  <data name="WixossLrig_Myu" xml:space="preserve">
+    <value>Myu</value>
+  </data>
+  <data name="WixossLrig_Alfou" xml:space="preserve">
+    <value>Alfou</value>
+  </data>
+  <data name="WixossLrig_Hanare" xml:space="preserve">
+    <value>Hanare</value>
+  </data>
+  <data name="WixossLrig_UNKNOWN" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="WixossLrig_Dona" xml:space="preserve">
+    <value>Dona</value>
+  </data>
+  <data name="WixossLrig_Yukime" xml:space="preserve">
+    <value>Yukime</value>
+  </data>
+  <data name="WixossLrig_Ril" xml:space="preserve">
+    <value>Ril</value>
+  </data>
+  <data name="WixossLrig_Canival" xml:space="preserve">
+    <value>Canival</value>
+  </data>
+  <data name="WixossLrig_Layla" xml:space="preserve">
+    <value>Layla</value>
+  </data>
+  <data name="WixossLrig_Aya" xml:space="preserve">
+    <value>Aya</value>
+  </data>
+  <data name="WixossLrig_Mel" xml:space="preserve">
+    <value>Mel</value>
+  </data>
+  <data name="WixossLrig_Mama" xml:space="preserve">
+    <value>Mama</value>
+  </data>
+  <data name="WixossLrig_Nanashi" xml:space="preserve">
+    <value>Nanashi</value>
+  </data>
+  <data name="WixossLrig_Guzuko" xml:space="preserve">
+    <value>Guzuko</value>
+  </data>
+  <data name="WixossLrig_Mugen" xml:space="preserve">
+    <value>Mugen</value>
+  </data>
+  <data name="WixossLrig_Tawil" xml:space="preserve">
+    <value>Tawil</value>
+  </data>
+  <data name="WixossLrig_Umr" xml:space="preserve">
+    <value>Umr</value>
+  </data>
+  <data name="WixossLrig_At" xml:space="preserve">
+    <value>At</value>
+  </data>
+  <data name="WixossLrig_BukubuTama" xml:space="preserve">
+    <value>Bukubu Tama</value>
+  </data>
+  <data name="WixossLrig_LoV" xml:space="preserve">
+    <value>LoV</value>
+  </data>
+  <data name="WixossLrig_Emma" xml:space="preserve">
+    <value>Emma</value>
+  </data>
+  <data name="WixossLrig_Ange" xml:space="preserve">
+    <value>Ange</value>
+  </data>
+  <data name="WixossLrig_Lize" xml:space="preserve">
+    <value>Lize</value>
+  </data>
+  <data name="WixossLrig_Nijisanji" xml:space="preserve">
+    <value>Nijisanji</value>
+  </data>
+  <data name="WixossLrig_Mito" xml:space="preserve">
+    <value>Mito</value>
+  </data>
+  <data name="WixossLrig_Toko" xml:space="preserve">
+    <value>Toko</value>
+  </data>
+  <data name="WixossLrig_Azusa" xml:space="preserve">
+    <value>Azusa</value>
+  </data>
+  <data name="WixossLrig_MakeUpWorkCloub" xml:space="preserve">
+    <value>Make-Up Work Cloub</value>
+  </data>
+  <data name="WixossLrig_Neru" xml:space="preserve">
+    <value>Neru</value>
+  </data>
+  <data name="WixossLrig_CnC" xml:space="preserve">
+    <value>C&amp;C</value>
+  </data>
+  <data name="WixossLrig_Shiroko" xml:space="preserve">
+    <value>Shiroko</value>
+  </data>
+  <data name="WixossLrig_ForeclosureTaskForce" xml:space="preserve">
+    <value>Foreclosure Task Force</value>
+  </data>
+  <data name="WixossLrig_Hina" xml:space="preserve">
+    <value>Hina</value>
+  </data>
+  <data name="WixossLrig_PrefectTeam" xml:space="preserve">
+    <value>Prefect Team</value>
+  </data>
+  <data name="WixossLrig_Akino" xml:space="preserve">
+    <value>Akino</value>
+  </data>
+  <data name="WixossLrig_Hirana" xml:space="preserve">
+    <value>Hirana</value>
+  </data>
+  <data name="WixossLrig_Rei" xml:space="preserve">
+    <value>Rei</value>
+  </data>
+  <data name="WixossLrig_LION" xml:space="preserve">
+    <value>LION</value>
+  </data>
+  <data name="WixossLrig_LOVIT" xml:space="preserve">
+    <value>LOVIT</value>
+  </data>
+  <data name="WixossLrig_WOLF" xml:space="preserve">
+    <value>WOLF</value>
+  </data>
+  <data name="WixossLrig_Nova" xml:space="preserve">
+    <value>Nova</value>
+  </data>
+  <data name="WixossLrig_Tamago" xml:space="preserve">
+    <value>Tamago</value>
+  </data>
+  <data name="WixossLrig_Bang" xml:space="preserve">
+    <value>Bang</value>
+  </data>
+  <data name="WixossLrig_Madoka" xml:space="preserve">
+    <value>Madoka</value>
+  </data>
+  <data name="WixossLrig_Sanga" xml:space="preserve">
+    <value>Sanga</value>
+  </data>
+  <data name="WixossLrig_Muzica" xml:space="preserve">
+    <value>Muzica</value>
+  </data>
+  <data name="WixossLrig_Ex" xml:space="preserve">
+    <value>Ex</value>
+  </data>
+  <data name="WixossLrig_Deus" xml:space="preserve">
+    <value>Deus</value>
+  </data>
+  <data name="WixossLrig_Machina" xml:space="preserve">
+    <value>Machina</value>
+  </data>
+  <data name="WixossLrig_Yukayuka" xml:space="preserve">
+    <value>Yukayuka</value>
+  </data>
+  <data name="WixossLrig_Mikomiko" xml:space="preserve">
+    <value>Mikomiko</value>
+  </data>
+  <data name="WixossLrig_Mahomaho" xml:space="preserve">
+    <value>Mahomaho</value>
+  </data>
+
+  <data name="WixossClass_IdolSpirit" xml:space="preserve">
+    <value>Idol Spirit</value>
+  </data>
+  <data name="WixossClass_IdolTone" xml:space="preserve">
+    <value>Idol Tone</value>
+  </data>
+  <data name="WixossClass_LivingSpirit" xml:space="preserve">
+    <value>Living Spirit</value>
+  </data>
+  <data name="WixossClass_LivingTone" xml:space="preserve">
+    <value>Living Tone</value>
+  </data>
+  <data name="WixossClass_MechSpirit" xml:space="preserve">
+    <value>Mech Spirit</value>
+  </data>
+  <data name="WixossClass_MechTone" xml:space="preserve">
+    <value>Mech Tone</value>
+  </data>
+  <data name="WixossClass_NatureSpirit" xml:space="preserve">
+    <value>Nature Spirit</value>
+  </data>
+  <data name="WixossClass_NatureTone" xml:space="preserve">
+    <value>Nature Tone</value>
+  </data>
+  <data name="WixossClass_WarSpirit" xml:space="preserve">
+    <value>War Spirit</value>
+  </data>
+  <data name="WixossClass_WarTone" xml:space="preserve">
+    <value>War Tone</value>
+  </data>
+  <data name="WixossClass_PrimalSpirit" xml:space="preserve">
+    <value>Primal Spirit</value>
+  </data>
+  <data name="WixossClass_PrimalTone" xml:space="preserve">
+    <value>Primal Tone</value>
+  </data>
+  <data name="WixossClass_DefenseFraction" xml:space="preserve">
+    <value>Defense Fraction</value>
+  </data>
+  <data name="WixossClass_FightingFraction" xml:space="preserve">
+    <value>Fighting Fraction</value>
+  </data>
+  <data name="WixossClass_LiberationFraction" xml:space="preserve">
+    <value>Liberation Fraction</value>
+  </data>
+
+  <data name="WixossSubclass_Angel" xml:space="preserve">
+    <value>Angel</value>
+  </data>
+  <data name="WixossSubclass_Beauty" xml:space="preserve">
+    <value>Beauty</value>
+  </data>
+  <data name="WixossSubclass_Brave" xml:space="preserve">
+    <value>Brave</value>
+  </data>
+  <data name="WixossSubclass_Demon" xml:space="preserve">
+    <value>Demon</value>
+  </data>
+  <data name="WixossSubclass_PriPara" xml:space="preserve">
+    <value>PriPara</value>
+  </data>
+  <data name="WixossSubclass_Wisdom" xml:space="preserve">
+    <value>Wisdom</value>
+  </data>
+  <data name="WixossSubclass_AerialBeast" xml:space="preserve">
+    <value>Aerial Beast</value>
+  </data>
+  <data name="WixossSubclass_AquaticBeast" xml:space="preserve">
+    <value>Aquatic Beast</value>
+  </data>
+  <data name="WixossSubclass_Dragon" xml:space="preserve">
+    <value>Dragon</value>
+  </data>
+  <data name="WixossSubclass_Insect" xml:space="preserve">
+    <value>Insect</value>
+  </data>
+  <data name="WixossSubclass_Outcast" xml:space="preserve">
+    <value>Outcast</value>
+  </data>
+  <data name="WixossSubclass_TerraBeast" xml:space="preserve">
+    <value>Terra Beast</value>
+  </data>
+  <data name="WixossSubclass_Cooking" xml:space="preserve">
+    <value>Cooking</value>
+  </data>
+  <data name="WixossSubclass_Denonbu" xml:space="preserve">
+    <value>Denonbu</value>
+  </data>
+  <data name="WixossSubclass_Electronics" xml:space="preserve">
+    <value>Electronics</value>
+  </data>
+  <data name="WixossSubclass_Labyrinth" xml:space="preserve">
+    <value>Labyrinth</value>
+  </data>
+  <data name="WixossSubclass_Legacy" xml:space="preserve">
+    <value>Legacy</value>
+  </data>
+  <data name="WixossSubclass_SeleneGirlsAcademy" xml:space="preserve">
+    <value>Selene Girls' Academy</value>
+  </data>
+  <data name="WixossSubclass_Vehicle" xml:space="preserve">
+    <value>Vehicle</value>
+  </data>
+  <data name="WixossSubclass_Vermilion" xml:space="preserve">
+    <value>Vermilion</value>
+  </data>
+  <data name="WixossSubclass_Virtual" xml:space="preserve">
+    <value>Virtual</value>
+  </data>
+  <data name="WixossSubclass_Atom" xml:space="preserve">
+    <value>Atom</value>
+  </data>
+  <data name="WixossSubclass_Bacteria" xml:space="preserve">
+    <value>Bacteria</value>
+  </data>
+  <data name="WixossSubclass_Cosmos" xml:space="preserve">
+    <value>Cosmos</value>
+  </data>
+  <data name="WixossSubclass_Jewel" xml:space="preserve">
+    <value>Jewel</value>
+  </data>
+  <data name="WixossSubclass_Ore" xml:space="preserve">
+    <value>Ore</value>
+  </data>
+  <data name="WixossSubclass_Plant" xml:space="preserve">
+    <value>Plant</value>
+  </data>
+  <data name="WixossSubclass_Amuser" xml:space="preserve">
+    <value>Amuser</value>
+  </data>
+  <data name="WixossSubclass_Armed" xml:space="preserve">
+    <value>Armed</value>
+  </data>
+  <data name="WixossSubclass_BlueArchive" xml:space="preserve">
+    <value>Blue Archive</value>
+  </data>
+  <data name="WixossSubclass_Venom" xml:space="preserve">
+    <value>Venom</value>
+  </data>
+  <data name="WixossSubclass_Trickster" xml:space="preserve">
+    <value>Trickster</value>
+  </data>
+  <data name="WixossSubclass_Weapon" xml:space="preserve">
+    <value>Weapon</value>
+  </data>
+</root>

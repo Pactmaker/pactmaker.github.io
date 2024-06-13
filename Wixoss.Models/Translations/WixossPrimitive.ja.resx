@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="WixossRegion_enUS" xml:space="preserve">
+    <value>英語</value>
+  </data>
+  <data name="WixossRegion_jaJP" xml:space="preserve">
+    <value>日本語</value>
+  </data>
+  <data name="WixossRegion_zhHans" xml:space="preserve">
+    <value>簡体字中国語</value>
+  </data>
+  <data name="WixossRegion_zhHant" xml:space="preserve">
+    <value>繁体字中国語</value>
+  </data>
+</root>

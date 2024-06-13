@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <UseRazorSourceGenerator>true</UseRazorSourceGenerator>
+    <PublishTrimmed>true</PublishTrimmed>
+    <WasmEnableSIMD>true</WasmEnableSIMD>
+    <WasmEnableThreads>false</WasmEnableThreads> <!-- Requires setting CORS header -->
+    <RunAOTCompilation>false</RunAOTCompilation> <!-- Requires wasm-tools workload -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.6" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
+    <PackageReference Include="MudBlazor" Version="6.20.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wixoss.Models\Wixoss.Models.csproj" />
+    <ProjectReference Include="..\Pactmaker.Shared\Pactmaker.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

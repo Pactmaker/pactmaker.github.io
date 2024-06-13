@@ -1,0 +1,104 @@
+
+@using Blazored.LocalStorage;
+@using Wixoss.Models.Cards;
+@using Wixoss.Models.Cards.Extensions;
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
+@using System.Text.Json;
+@using System.Text.Json.Serialization;
+@using System.IO.Compression;
+@inject HttpClient Http
+@inject IWebAssemblyHostEnvironment HostEnvironment
+@inject ILocalStorageService LocalStorage
+@inject WixossCardList CardList
+@inject WixossDeckList DeckList
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+
+@page "/decks"
+@page "/decks/{ShareString}"
+
+<PageTitle>Pactmaker - Deck Builder</PageTitle>
+
+<MudGrid Spacing="2" Justify=@Justify.Center>
+@if (DeckList.Decks.Count() == 0)
+{
+    <MudProgressCircular Color=@Color.Default Style="height: 100px; width: 100px;" Indeterminate=@true />
+}
+else
+{
+    @foreach (var i in DeckList.SelectedDeck.Cards.OrderBy(k => k.Key.Type switch
+                                    {
+                                        "精灵" => 0,
+                                        "魔法" => 1,
+                                        "分身" => 2,
+                                        "分身 支援" => 3,
+                                        "必杀" => 4,
+                                        "必杀 衍生物" => 5,
+                                        "钥匙" => 6,
+                                        "碎片" => 7,
+                                        "共鸣" => 8,
+                                        _ => int.MaxValue,
+                                    })
+                                    .ThenBy(k => k.Key.Level)
+                                    .ThenBy(k => k.Key.Power)
+                                    .ThenBy(k => k.Key.Name)
+                                    .ToDictionary())
+    {
+        @for (var j = 0; j < i.Value; j++)
+        {
+        <MudItem>
+
+            <MudCard Width="200px">
+                <MudCardMedia Image=@($"{(HostEnvironment.IsDevelopment() ? string.Empty : i.Key.AssetHost())}{i.Key.ImageURL()}")
+                            @onclick=@(e => {
+                                if (--DeckList.SelectedDeck.Cards[i.Key] == 0)
+                                {
+                                    DeckList.SelectedDeck.Cards.Remove(i.Key, out int v);
+                                }
+                            })/>
+
+                <MudCardContent>
+                    <MudLink Href="@($"cards/{i.Key.UID}")">@i.Key.Name</MudLink>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        }
+    }
+}
+</MudGrid>
+
+<MudFab Color=@Color.Primary
+        StartIcon=@Icons.Material.Filled.Save
+        Style="position: fixed; bottom: 20px; right: 20px;"
+        OnClick=@(async (e) => {
+            await DeckList.SaveAsync(LocalStorage);
+            Snackbar.Add($"Deck saved.");
+            Navigation.NavigateTo($"/decks/{await WixossDeck.ToShareStringAsync(CardList, DeckList.SelectedDeck) ?? string.Empty}");
+        })/>
+
+@code
+{
+    [Parameter]
+    public string ShareString { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await DeckList.PopulateAsync();
+        await CardList.PopulateAsync();
+        if (!string.IsNullOrWhiteSpace(ShareString))
+        {
+            try
+            {
+                var deck = await WixossDeck.FromShareStringAsync(CardList, ShareString);
+                if (deck is WixossDeck)
+                {
+                    DeckList.SelectedDeck = deck;
+                }
+            }
+            catch (JsonException)
+            {
+                Snackbar.Add($"Invalid deck share link.", Severity.Error);
+            }
+        }
+    }
+}

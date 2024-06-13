@@ -1,0 +1,121 @@
+@using Wixoss.Models.Cards;
+@using Wixoss.Models.Cards.Extensions;
+@using Blazored.LocalStorage;
+@inject HttpClient Http
+@inject ILocalStorageService LocalStorage
+@inject WixossCardList CardList
+@inject WixossDeckList DeckList
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+
+@page "/"
+@page "/cards"
+@page "/cards/{UID}"
+
+<style>
+    .selected {
+        background-color: @(new MudTheme().PaletteDark.Background) !important;
+    }
+
+        .selected > td {
+            color: @(new MudTheme().PaletteDark.TextPrimary) !important;
+        }
+</style>
+
+<PageTitle>Pactmaker</PageTitle>
+
+<MudPaper Height="calc(100vh - 6rem);" Style="overflow: hidden; position: relative;">
+    <MudDrawerContainer Class="d-flex align-center justify-center mud-width-full mud-height-full">
+        <MudDrawer @bind-Open="@CardViewerOpen" Anchor=@Anchor.End Width="25vw"
+            ClipMode=@DrawerClipMode.Docked Elevation="1" Variant=@DrawerVariant.Persistent>
+            <WixossCardViewer Class="d-flex align-center justify-center mud-width-full" @bind-Card=@SelectedCard />
+            <MudButtonGroup Color=@Color.Primary Variant=@Variant.Outlined>
+                <MudButton Href=@SelectedCardJson Target="_blank" StartIcon=@Icons.Material.Filled.EditNote>Edit</MudButton>
+                <MudButton StartIcon=@Icons.Material.Filled.Add OnClick=@(e => {
+                    if (!DeckList.SelectedDeck.Cards.TryAdd(SelectedCard, 1))
+                    {
+                        DeckList.SelectedDeck.Cards[SelectedCard]++;
+                    }
+                    Snackbar.Add($"{SelectedCard.Name} added to {DeckList.SelectedDeck.Name}.");
+                })>Add to deck</MudButton>
+            </MudButtonGroup>
+        </MudDrawer>
+
+        <MudPaper Class="d-flex justify-center align-center mud-width-full mud-height-full">
+@if (CardList.Cards.Count() == 0)
+{
+            <MudProgressCircular Color=@Color.Default Style="height: 100px; width: 100px;" Indeterminate=@true />
+}
+else
+{
+            <MudDataGrid Items=@CardList.Cards T=@WixossCard @ref=@CardGrid Virtualize=@true
+                Filterable=@true FilterMode=@DataGridFilterMode.ColumnFilterRow
+                Hover=@true FixedHeader=@true
+                Class="mud-width-full" Height="calc(100vh - 10rem);"
+                RowClick=@(e => {
+                    SelectedCard = e.Item;
+                    Navigation.NavigateTo($"/cards/{e.Item.UID ?? string.Empty}");
+                })
+                RowClass="cursor-pointer" RowClassFunc=@((e, i) => SelectedCard == e ? "selected" : string.Empty)
+                QuickFilter=@(e => {
+                    if (string.IsNullOrWhiteSpace(ToolbarSearch))
+                        return true;
+                    if (e.UID?.Contains(ToolbarSearch) ?? false)
+                        return true;
+                    if (e.CardNumber?.Contains(ToolbarSearch) ?? false)
+                        return true;
+                    if (e.Effect?.Contains(ToolbarSearch) ?? false)
+                        return true;
+                    if (e.Name?.Contains(ToolbarSearch) ?? false)
+                        return true;
+                    
+                    return false;
+                })>
+                <ToolBarContent>
+                    <MudTextField @bind-Value=@ToolbarSearch Placeholder="@SearchPrompt" Adornment="Adornment.Start" Immediate="true"
+                        AdornmentIcon="@Icons.Material.Filled.Search" Clearable="true" IconSize="Size.Medium" Class="mt-0" />
+                </ToolBarContent>
+                <Columns>
+                    <PropertyColumn Property="i => i.Name" InitialDirection=@SortDirection.Ascending Title="Card Name" />
+                    <PropertyColumn Property="i => i.Type" Title="Card Type" />
+                    <PropertyColumn Property="@(i => (i.LrigType == null) ? null : string.Join("|", i.LrigType))" Title="LRIG Type" />
+                    <PropertyColumn Property="@(i => (i.Color == null) ? null : string.Join("|", i.Color))" Title="Color" />
+                    <PropertyColumn Property="i => i.Format" Title="Format" />
+                    <PropertyColumn Property="i => i.Level" Title="Level" />
+                    <PropertyColumn Property="i => i.Power" Title="Power" />
+                    <PropertyColumn Property="@(i => (i.Class == null) ? null : string.Join("|", i.Class))" Title="Class" />
+                </Columns>
+            </MudDataGrid>
+}
+        </MudPaper>
+    </MudDrawerContainer>
+</MudPaper>
+
+<MudDrawer Open=@false Anchor=@Anchor.Bottom
+    Elevation="1" DisableOverlay=@true Variant=@DrawerVariant.Temporary>
+    <MudText>Deck panel</MudText>
+</MudDrawer>
+
+@code
+{
+    private MudDataGrid<WixossCard> CardGrid { get; set; } = null!;
+    private bool CardViewerOpen { get => !string.IsNullOrWhiteSpace(SelectedCard.UID); set => _ = value; }
+    private WixossCard SelectedCard { get; set; } = new();
+    private string ToolbarSearch { get; set; } = string.Empty;
+    private string SelectedCardJson => $"{SelectedCard.GitEditHost()}{SelectedCard.JsonURL()}";
+    private string SearchPrompt => $"Search {CardGrid.GetFilteredItemsCount()} cards";
+
+    [Parameter]
+    public string UID { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CardList.PopulateAsync();
+        await DeckList.PopulateAsync();
+        if (!string.IsNullOrWhiteSpace(UID) && string.IsNullOrWhiteSpace(SelectedCard.UID))
+        {
+            SelectedCard = CardList.Cards.Where(i => i.UID == UID).SingleOrDefault() ?? new();
+            ToolbarSearch = UID;
+        }
+    }
+}
