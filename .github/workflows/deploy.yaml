@@ -29,7 +29,10 @@ jobs:
           make update_assets_prod
           dotnet workload install wasm-tools
           dotnet workload restore
-          dotnet publish -p:RunAOTCompilation=true
+          # AOT is currently causing issues when opening card image view
+          # https://github.com/MudBlazor/MudBlazor/issues/8493
+          # dotnet publish -p:RunAOTCompilation=true
+          dotnet publish
           echo "wx.prtn.io" > Pactmaker.Wasm/bin/Release/net8.0/publish/wwwroot/CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
