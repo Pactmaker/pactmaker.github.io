@@ -30,6 +30,7 @@ jobs:
           dotnet workload install wasm-tools
           dotnet workload restore
           dotnet publish -p:RunAOTCompilation=true
+          echo "wx.prtn.io" > ${{ github.repository }}/Pactmaker.Wasm/bin/Release/net8.0/publish/wwwroot/CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
