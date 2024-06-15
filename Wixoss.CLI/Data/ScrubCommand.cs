@@ -148,24 +148,37 @@ public class ScrubCommand: Command
             json.power = "12000";
         }
 
-        if (json.card_lrig_type == "出自" && json.card_no == "WXC02-SC046")
-        {
+        if (json.card_no == "WXC02-SC046" ||
+            json.card_no == "WXC02-SC090"
+        ) {
             json.card_lrig_type = "塔维尔";
         }
 
-        if (json.card_lrig_type == "起" && json.card_no == "WXC02-SC090")
-        {
-            json.card_lrig_type = "塔维尔";
-        }
-
-        if (json.card_lrig_type == "起" && json.card_no == "WXC02-SC100")
+        if (json.card_no == "WXC02-SC100")
         {
             json.card_lrig_type = "乌姆尔";
         }
 
-        if (json.card_sprite_type == "精像：美巧" && json.card_no == "WXN02-SC245")
+        if (json.card_no == "WXC02-SC111")
+        {
+            json.card_lrig_type = "阿尔芙";
+        }
+
+        if (json.card_no == "WXN02-SC245")
         {
             json.card_sprite_type = "精像/美巧";
+        }
+
+        if (json.card_no == "WXD09-SC008" ||
+            json.card_no == "WXD09-SC009" ||
+            json.card_no == "WXD09-SC010" ||
+            json.card_no == "WXD09-SC011" ||
+            json.card_no == "WXD09-SC012" ||
+            json.card_no == "WXD09-SC013" ||
+            json.card_no == "WXD09-SC014" ||
+            json.card_no == "WXD09-SC015"
+        ) {
+            json.card_sprite_type = "精生/怪异";
         }
 
         if (json.cost == "硬币1/蓝/黑1" && (json.card_no == "WXC04-SC009" || json.card_no == "WXC04-SC009S"))
