@@ -11,7 +11,7 @@
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
     <PackageReference Include="ConcurrentHashSet" Version="1.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.8" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.10" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.8" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.8" />
     <PackageReference Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
